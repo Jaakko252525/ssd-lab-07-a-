@@ -1,18 +1,18 @@
 pipeline {
 	agent {
 		docker {
-			image 'sudo composer:latest'
+			image 'composer:latest'
 		}
 	}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'sudo composer install'
+				sh 'composer install'
 			}
 		}
 		stage('Test') {
 			steps {
-                sh 'sudo ./vendor/bin/phpunit tests'
+                sh './vendor/bin/phpunit tests'
             }
 		}
 	}
