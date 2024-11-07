@@ -7,12 +7,18 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'composer install'
+			        sh '''
+			            cd jenkins-phpunit-test
+			            composer install
+			        '''
 			}
 		}
 		stage('Test') {
 			steps {
-                sh './vendor/bin/phpunit tests'
+				sh '''
+			            cd jenkins-phpunit-test
+			            ./vendor/bin/phpunit tests
+			        '''
             }
 		}
 	}
