@@ -7,12 +7,12 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps {
-				sh 'composer install'
+				sh 'sudo composer install'
 			}
 		}
 		stage('Test') {
 			steps {
-                sh './vendor/bin/phpunit tests'
+                sh 'sudo ./vendor/bin/phpunit tests'
             }
 		}
 	}
